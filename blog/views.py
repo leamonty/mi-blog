@@ -1,12 +1,10 @@
+
 from django.shortcuts import render
-from .models import Publicacion
+from .models import Post
 
 
 def inicio(request):
-
-    publicaciones = Publicacion.objects.filter(
-        publicada=True
-    ).order_by('-fecha_creacion')
+    publicaciones = Post.objects.all()
 
     contexto = {
         'publicaciones': publicaciones

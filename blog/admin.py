@@ -1,19 +1,16 @@
+
 from django.contrib import admin
-from .models import Publicacion
+from .models import Post
 
 
-@admin.register(Publicacion)
-class PublicacionAdmin(admin.ModelAdmin):
-
+@admin.register(Post)
+class PostAdmin(admin.ModelAdmin):
     list_display = (
         'titulo',
         'autor',
         'fecha_creacion',
-        'publicada'
+        'fecha_actualizacion',
     )
 
-    list_filter = ('publicada', 'fecha_creacion')
-
     search_fields = ('titulo', 'contenido')
-
     ordering = ('-fecha_creacion',)
