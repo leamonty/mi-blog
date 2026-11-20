@@ -1,13 +1,16 @@
-
-from django.shortcuts import render
+from django.views.generic import ListView, DetailView
 from .models import Post
 
 
-def inicio(request):
-    publicaciones = Post.objects.all()
+class PostListView(ListView):
+    model = Post
+    queryset = Post.objects.select_related('autor').all()
+    template_name = 'blog/post_list.html'
+    context_object_name = 'posts'
 
-    contexto = {
-        'publicaciones': publicaciones
-    }
 
-    return render(request, 'blog/inicio.html', contexto)
+class PostDetailView(DetailView):
+    model = Post
+    queryset = Post.objects.select_related('autor').all()
+    template_name = 'blog/post_detail.html'
+    context_object_name = 'post'
