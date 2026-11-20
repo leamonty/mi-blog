@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Blog</title>
+</head>
+<body>
+
+    <header>
+        <h1>Mi Blog</h1>
+        <p>Un espacio para compartir publicaciones e ideas.</p>
+    </header>
+
+    <main>
+        <h2>Últimas publicaciones</h2>
+
+        {% for publicacion in publicaciones %}
+            <article>
+                <h3>{{ publicacion.titulo }}</h3>
+                <p>{{ publicacion.contenido }}</p>
+                <small>
+                    Autor: {{ publicacion.autor }}
+                    | Fecha: {{ publicacion.fecha_creacion|date:"d/m/Y" }}
+                </small>
+            </article>
+        {% empty %}
+            <p>Todavía no hay publicaciones disponibles.</p>
+        {% endfor %}
+
+    </main>
+
+</body>
+</html>
