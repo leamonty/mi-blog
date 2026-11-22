@@ -29,6 +29,18 @@
 
 </article>
 
+{% if user == post.autor %}
+    <div class="mt-4">
+        <a href="{% url 'blog:post_update' post.pk %}" class="btn btn-primary">
+            Editar
+        </a>
+
+        <a href="{% url 'blog:post_delete' post.pk %}" class="btn btn-danger">
+            Eliminar
+        </a>
+    </div>
+{% endif %}
+
 <a href="{% url 'blog:post_list' %}" class="btn btn-secondary mt-3">
     Volver
 </a>
