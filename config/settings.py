@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',  
     'blog', 
+    'usuarios',
 ]
 
 MIDDLEWARE = [
@@ -133,3 +134,9 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+
+
+# Configuración de autenticación de usuarios
+LOGIN_URL = 'usuarios:login'
+LOGIN_REDIRECT_URL = 'blog:post_list'
+LOGOUT_REDIRECT_URL = 'blog:post_list'
